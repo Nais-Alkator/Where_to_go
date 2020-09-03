@@ -8,6 +8,7 @@ class Place(models.Model):
 	description_long = models.TextField()
 	longitude = models.FloatField()
 	latitude = models.FloatField()
+	place_id = models.CharField(max_length=20)
 
 	def __str__(self):
 		return self.title
