@@ -4,8 +4,8 @@ from django.db import models
 
 class Place(models.Model):
 	title = models.CharField(max_length=200)
-	description_short = models.TextField()
-	description_long = models.TextField()
+	description_short = models.TextField(blank=True)
+	description_long = models.TextField(blank=True)
 	longitude = models.FloatField()
 	latitude = models.FloatField()
 	place_id = models.CharField(max_length=20)
@@ -16,7 +16,7 @@ class Place(models.Model):
 
 class Image(models.Model):
 	image = models.ImageField(blank=True)
-	title = models.ForeignKey(Place, on_delete=models.CASCADE)
+	place_image = models.ForeignKey(Place, on_delete=models.CASCADE, related_name="place_image")
 	image_id = models.AutoField(primary_key=True)
 
 	def __str__(self):
