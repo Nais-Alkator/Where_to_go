@@ -20,4 +20,4 @@ class Image(models.Model):
 	image_id = models.AutoField(primary_key=True)
 
 	def __str__(self):
-		return f"{self.image_id} {self.title}"
+		return f"{self.image_id} {self.place_image}"
