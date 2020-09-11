@@ -1,6 +1,6 @@
 from django.db import models
+from django.contrib import admin
 
-# Create your models here.
 
 class Place(models.Model):
 	title = models.CharField(max_length=200)
@@ -21,3 +21,13 @@ class Image(models.Model):
 
 	def __str__(self):
 		return f"{self.image_id} {self.place_image}"
+
+
+class ImageInline(admin.TabularInline):
+    model = Image
+
+
+class PlaceAdmin(admin.ModelAdmin):
+    inlines = [
+        ImageInline,
+    ]
