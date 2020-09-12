@@ -1,11 +1,13 @@
 from django.contrib import admin
 from .models import Place, Image
 from django.utils.html import format_html
+from adminsortable2.admin import SortableInlineAdminMixin
+
 
 admin.site.register(Image)
 
 
-class ImageInline(admin.TabularInline):
+class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Image
     extra = 0
     
@@ -14,7 +16,7 @@ class ImageInline(admin.TabularInline):
     )
 
     readonly_fields = ["preview",]
-    fields = ('image', 'place_image', "image_id", "preview")
+    fields = ('image', "preview", "position")
 
 
 @admin.register(Place)
