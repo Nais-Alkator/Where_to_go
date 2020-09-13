@@ -126,3 +126,4 @@ dmypy.json
 
 # Media
 media/
+db.sqlite3
