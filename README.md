@@ -4,7 +4,7 @@
 
 <img src="static_src/.gitbook/assets/site.png"/>
 
-[Демка сайта](https://devmanorg.github.io/where-to-go-frontend/).
+[Демка сайта](http://alkator.pythonanywhere.com/).
 
 ## Как запустить
 
