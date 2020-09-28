@@ -17,7 +17,7 @@ class Place(models.Model):
 class Image(models.Model):
     image = models.ImageField(upload_to="places_images", blank=True, verbose_name="Файл изображения")
     place_image = models.ForeignKey(Place, on_delete=models.CASCADE, related_name="place_image", verbose_name="Изображение")
-    position = models.PositiveIntegerField(default=0, verbose_name="Порядковый номер")
+    position = models.PositiveIntegerField(null=True, verbose_name="Порядковый номер")
 
     def __str__(self):
         return f"{self.position} {self.place_image}"
