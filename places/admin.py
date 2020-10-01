@@ -15,8 +15,8 @@ class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
         if not image.image:
             return format_html('<p>{}</p>', 'Картинка ещё не загружена')
 
-        return format_html('<img src="{}" height={} />'.format(image.image.url, 200)
-    )
+        return format_html('<img src="{}" height={} />', image.image.url, 200)
+    
 
     readonly_fields = ["preview",]
     fields = ('image', "preview", "position")
