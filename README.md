@@ -2,8 +2,6 @@
 
 Сайт об интересных местах Москвы.
 
-<img src="static_src/.gitbook/assets/site.png"/>
-
 [Демка сайта](http://alkator.pythonanywhere.com/).
 
 ## Как запустить
@@ -24,8 +22,6 @@
 ## Настройки
 
 Внизу справа на странице можно включить отладочный режим логгирования.
-
-![debug mode]<img src="static_src/.gitbook/assets/debug-option.png"/>
 
 Настройки сохраняются в Local Storage браузера и не пропадают после обновления страницы. Чтобы сбросить настройки удалите ключи из Local Storage с помощью Chrome Dev Tools —&gt; Вкладка Application —&gt; Local Storage.
 
