@@ -18,7 +18,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='image',
             name='place_image',
-            field=models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE, related_name='place_image', to='places.Place', verbose_name='Изображение'),
+            field=models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE,
+                                    related_name='place_image', to='places.Place', verbose_name='Изображение'),
             preserve_default=False,
         ),
     ]

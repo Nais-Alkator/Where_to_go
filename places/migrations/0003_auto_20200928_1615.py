@@ -13,6 +13,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='image',
             name='position',
-            field=models.PositiveIntegerField(null=True, verbose_name='Порядковый номер'),
+            field=models.PositiveIntegerField(
+                null=True, verbose_name='Порядковый номер'),
         ),
     ]
