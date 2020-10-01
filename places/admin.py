@@ -19,7 +19,7 @@ class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     
 
     readonly_fields = ["preview",]
-    fields = ('image', "preview", "position")
+    fields = ['image', "preview", "position"]
 
 
 @admin.register(Place)
