@@ -35,7 +35,7 @@ def get_details_url(request, place_id):
     place = get_object_or_404(Place, place_id=place_id)
     details_url = {
         "title": place.title,
-        "imgs": [image.image.url for image in place.place_image.all()],
+        "imgs": [image.image.url for image in place.pictures.all()],
         "description_short": place.description_short,
         "description_long": place.description_long,
         "coordinates": {

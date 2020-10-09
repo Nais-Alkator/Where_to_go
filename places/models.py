@@ -20,7 +20,7 @@ class Image(models.Model):
     image = models.ImageField(
         upload_to="places_images", verbose_name="Файл изображения")
     place = models.ForeignKey(
-        Place, on_delete=models.CASCADE, related_name="place", verbose_name="Изображение")
+        Place, on_delete=models.CASCADE, related_name="pictures", verbose_name="Изображение")
     position = models.PositiveIntegerField(
         null=True, verbose_name="Порядковый номер")
 
