@@ -127,3 +127,10 @@ dmypy.json
 # Media
 media/
 db.sqlite3
+
+# Static
+static/admin
+static/places
+static/index.html
+static/README.md
+static/SUMMARY.md
