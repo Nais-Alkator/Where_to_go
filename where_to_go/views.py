@@ -23,12 +23,12 @@ def index(request):
                  }
         features.append(place)
 
-    data = {"data": {
+    places_info = {"places_info": {
         "type": "FeatureCollection",
         "features": features,
     }
     }
-    return render(request, "index.html", context=data)
+    return render(request, "index.html", context=places_info)
 
 
 def get_place_info(request, place_id):
