@@ -31,9 +31,9 @@ def index(request):
     return render(request, "index.html", context=data)
 
 
-def get_details_url(request, place_id):
+def get_place_info(request, place_id):
     place = get_object_or_404(Place, place_id=place_id)
-    details_url = {
+    place_info = {
         "title": place.title,
         "imgs": [image.image.url for image in place.pictures.all()],
         "description_short": place.description_short,
@@ -42,6 +42,6 @@ def get_details_url(request, place_id):
             "lng": place.longitude,
             "lat": place.latitude, }
     }
-    details_url = JsonResponse(details_url, safe=False, json_dumps_params={
+    place_info = JsonResponse(place_info, safe=False, json_dumps_params={
                                'ensure_ascii': False, "indent": 2, })
-    return details_url
+    return place_info
