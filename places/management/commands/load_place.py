@@ -25,6 +25,7 @@ class Command(BaseCommand):
 
         for image_link in response['imgs']:
             response = requests.get(image_link)
+            response.raise_for_status()
             imagefile = ContentFile(response.content)
             filename = image_link.split('/')[-1]
 
