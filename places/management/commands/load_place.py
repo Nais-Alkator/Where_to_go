@@ -16,7 +16,7 @@ class Command(BaseCommand):
         response.raise_for_status()
         response = response.json()
 
-        place = Place.objects.create(title=response['title'],
+        place = Place.objects.get_or_create(title=response['title'],
                                      description_short=response['description_short'],
                                      description_long=response['description_long'],
                                      longitude=response['coordinates']['lng'],
