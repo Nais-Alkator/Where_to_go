@@ -21,11 +21,10 @@ class Image(models.Model):
         upload_to="places_images", verbose_name="Файл изображения")
     place = models.ForeignKey(
         Place, on_delete=models.CASCADE, related_name="pictures", verbose_name="Изображение")
-    position = models.PositiveIntegerField(
-        null=True, verbose_name="Порядковый номер")
+    position = models.PositiveIntegerField(verbose_name="Порядковый номер")
 
     def __str__(self):
-        return f"{self.position} {self.place_image}"
+        return f"{self.position} {self.place}"
 
     class Meta(object):
         ordering = ['position']
