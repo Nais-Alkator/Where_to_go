@@ -125,11 +125,11 @@ dmypy.json
 .pyre/
 
 # Media
-media/
+#media/
 db.sqlite3
 
 # Static
-static_src/
+#static_src/
 static/admin
 static/places
 static/index.html
