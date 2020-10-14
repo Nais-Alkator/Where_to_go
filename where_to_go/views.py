@@ -18,17 +18,17 @@ def index(request):
                  "properties": {
                      "title": place.title,
                      "placeId": place.place_id,
-                     "detailsUrl": reverse("details_url", args=[place.place_id]),
+                     "detailsUrl": reverse("place_info", args=[place.place_id]),
                  }
                  }
         features.append(place)
 
-    places_info = {"places_info": {
+    place_info = {"place_info": {
         "type": "FeatureCollection",
         "features": features,
     }
     }
-    return render(request, "index.html", context=places_info)
+    return render(request, "index.html", context=place_info)
 
 
 def get_place_info(request, place_id):

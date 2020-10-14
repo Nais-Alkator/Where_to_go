@@ -16,12 +16,13 @@ class Command(BaseCommand):
         response.raise_for_status()
         response = response.json()
 
-        place = Place.objects.get_or_create(title=response['title'],
+        place, created = Place.objects.get_or_create(title=response['title'], 
                                      description_short=response['description_short'],
                                      description_long=response['description_long'],
                                      longitude=response['coordinates']['lng'],
                                      latitude=response['coordinates']['lat'],
-                                     place_id=response['title'])
+                                     place_id=response['title'],
+                                     )
 
         for image_link in response['imgs']:
             response = requests.get(image_link)
@@ -29,5 +30,5 @@ class Command(BaseCommand):
             imagefile = ContentFile(response.content)
             filename = image_link.split('/')[-1]
 
-            image = Image.objects.create(place_image=place)
+            image = Image.objects.create(place=place)
             image.image.save(filename, imagefile, save=True)

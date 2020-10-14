@@ -129,6 +129,7 @@ media/
 db.sqlite3
 
 # Static
+static_src/
 static/admin
 static/places
 static/index.html
