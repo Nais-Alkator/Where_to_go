@@ -2,7 +2,7 @@
 
 Сайт об интересных местах Москвы.
 
-[Демка сайта](http://alkator.pythonanywhere.com/).
+[Демка сайта](http://alkatornori.pythonanywhere.com/).
 
 ## Как запустить
 
