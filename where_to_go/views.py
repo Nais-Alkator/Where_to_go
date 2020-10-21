@@ -17,8 +17,8 @@ def index(request):
                  },
                  "properties": {
                      "title": place.title,
-                     "placeId": place.place_id,
-                     "detailsUrl": reverse("place_info", args=[place.place_id]),
+                     "placeId": place.slug,
+                     "detailsUrl": reverse("place_info", args=[place.slug]),
                  }
                  }
         features.append(place)
@@ -31,8 +31,8 @@ def index(request):
     return render(request, "index.html", context=place_info)
 
 
-def get_place_info(request, place_id):
-    place = get_object_or_404(Place, place_id=place_id)
+def get_place_info(request, slug):
+    place = get_object_or_404(Place, slug=slug)
     place_info = {
         "title": place.title,
         "imgs": [image.image.url for image in place.pictures.all()],
