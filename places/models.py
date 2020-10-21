@@ -10,7 +10,7 @@ class Place(models.Model):
     longitude = models.FloatField(verbose_name="Долгота")
     latitude = models.FloatField(verbose_name="Широта")
     place_id = models.CharField(
-        max_length=20, verbose_name="Уникальный заголовок")
+        max_length=20, verbose_name="Уникальный заголовок", unique=True)
 
     def __str__(self):
         return self.title
