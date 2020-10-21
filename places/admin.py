@@ -13,7 +13,7 @@ class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     
     def preview(self, image):
         if not image.image:
-            return format_html('<p>{}</p>', 'Картинка ещё не загружена')
+            return format_html('<p>Картинка ещё не загружена</p>', )
 
         return format_html('<img src="{}" height={} />', image.image.url, 200)
     
