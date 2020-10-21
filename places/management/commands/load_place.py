@@ -31,4 +31,5 @@ class Command(BaseCommand):
             filename = image_link.split('/')[-1]
 
             image = Image.objects.create(place=place)
+            image.position = image.id
             image.image.save(filename, imagefile, save=True)
