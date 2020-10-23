@@ -9,7 +9,7 @@ class Place(models.Model):
     long_description = HTMLField(blank=True, verbose_name="Подробное описание")
     longitude = models.FloatField(verbose_name="Долгота")
     latitude = models.FloatField(verbose_name="Широта")
-    place_id = models.CharField(
+    slug = models.CharField(
         max_length=20, verbose_name="Уникальный заголовок", unique=True)
 
     def __str__(self):

@@ -16,20 +16,22 @@ class Command(BaseCommand):
         response.raise_for_status()
         response = response.json()
 
-        place, created = Place.objects.get_or_create(title=response['title'], 
-                                     short_description=response['description_short'],
-                                     long_description=response['description_long'],
-                                     longitude=response['coordinates']['lng'],
-                                     latitude=response['coordinates']['lat'],
-                                     place_id=response['title'],
+        place, created = Place.objects.get_or_create(title=response['title'],
+                                 defaults={
+                                     "short_description": response['description_short'],
+                                     "long_description": response['description_long'],
+                                     "longitude": response['coordinates']['lng'],
+                                     "latitude": response['coordinates']['lat'],
+                                     "slug": response['title'],
+                                     },
                                      )
-
-        for image_link in response['imgs']:
-            response = requests.get(image_link)
-            response.raise_for_status()
-            imagefile = ContentFile(response.content)
-            filename = image_link.split('/')[-1]
-
-            image = Image.objects.create(place=place)
-            image.position = image.id
-            image.image.save(filename, imagefile, save=True)
+        print(created)
+        if not created:
+            for image_link in response['imgs']:
+                response = requests.get(image_link)
+                response.raise_for_status()
+                imagefile = ContentFile(response.content)
+                filename = image_link.split('/')[-1]
+                image = Image.objects.create(place=place)
+                image.position = image.id
+                image.image.save(filename, imagefile, save=True)
