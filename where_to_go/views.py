@@ -33,7 +33,7 @@ def index(request):
 
 def get_place_info(request, slug):
     place = get_object_or_404(Place, slug=slug)
-    serialize = {
+    serialized_place = {
         "title": place.title,
         "imgs": [image.image.url for image in place.pictures.all()],
         "description_short": place.short_description,
@@ -42,6 +42,6 @@ def get_place_info(request, slug):
             "lng": place.longitude,
             "lat": place.latitude, }
     }
-    return JsonResponse(serialize, safe=False, json_dumps_params={
+    return JsonResponse(serialized_place, safe=False, json_dumps_params={
                                'ensure_ascii': False, "indent": 2, })
     
